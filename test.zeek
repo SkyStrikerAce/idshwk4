@@ -17,9 +17,9 @@ event http_reply(c: connection, version: string, code: count, reason: string)
 event zeek_init() 
 {
     local rp_all = SumStats::Reducer($stream="response", 
-                                   $apply=set(SumStats::SUM));
+                                     $apply=set(SumStats::SUM));
     local rp_404 = SumStats::Reducer($stream="response_404", 
-                                   $apply=set(SumStats::SUM));
+                                     $apply=set(SumStats::SUM));
     local rp_404_unq = SumStats::Reducer($stream="response_404_unique", 
                                          $apply=set(SumStats::UNIQUE));
 
