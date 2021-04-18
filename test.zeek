@@ -6,8 +6,8 @@ event http_reply(c: connection, version: string, code: count, reason: string)
     if (code == 404) 
     {
         SumStats::observe("response_404",
-                          SumStats::Key($host=c$id$orig_h), 
-    					  SumStats::Observation($num=1));
+                          SumStats::Key($host=c$id$orig_h),
+                          SumStats::Observation($num=1));
         SumStats::observe("response_404_unique", 
                           SumStats::Key($host=c$id$orig_h), 
                           SumStats::Observation($str=c$http$uri));
